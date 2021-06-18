@@ -4,9 +4,7 @@ database.connect();
 
 // método que informa todos os funcionários cadastrados
 exports.getFuncionarios = function(){
-    return res.status (201) .send ({
-        message: "teste !"
-    });  
+    return database.query('select * from public.funcionarios');
 };
 
 
