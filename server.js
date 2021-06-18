@@ -10,6 +10,6 @@ app.use(express.json({ type: 'application/json' }));
 app.use(cors());
 app.use('/', require('./server/route/funcionariosRoute'));
 
-app.listen(3000,()=>{
-    console.log('Start');
-})
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Server running");
+});
