@@ -8,6 +8,7 @@ const funcionariosService = require('../service/funcionariosService');
 router.get('/funcionarios', async function(req, res){
     const funcionarios = await funcionariosService.getFuncionarios();
     res.json(funcionarios);
+    
 });
 router.get('/funcionarios/:id', async function(req, res){
     const funcionariosId = await funcionariosService.getFuncionariosId(req, res);
