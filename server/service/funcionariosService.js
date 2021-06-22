@@ -19,3 +19,7 @@ exports.getFuncionariosId = function(req, res){
 exports.deleteFuncionarios = function(req,res){
     return funcionariosData.deleteFuncionarios(req, res);
 }
+
+exports.getFuncionariosCpf = function(req, res){
+    return funcionariosData.getFuncionariosCpf(req, res);
+}

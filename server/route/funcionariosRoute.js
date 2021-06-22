@@ -22,6 +22,12 @@ router.put('/funcionarios/:id', async function(req, res){
     const editarFuncionario = await funcionariosService.editarFuncionariosId(req, res);
     res.json(editarFuncionario);
 });
+
+router.get('/funcionarios/cpf/:cpf', async function(req, res){
+    const funcionariosCpf = await funcionariosService.getFuncionariosCpf(req, res);
+    res.json(funcionariosCpf);
+});
+
 router.delete('/funcionarios', async function(req, res){
     const deleteFuncionarios = await funcionariosService.deleteFuncionarios(req, res);
     res.json(deleteFuncionarios);

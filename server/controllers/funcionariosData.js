@@ -52,6 +52,12 @@ exports.getFuncionariosId = (req, res) => {
     return database.query(`SELECT * FROM public.funcionarios WHERE id = ${funcionariosID}`);
     
 };
+// método que pega o cpf do funcionario 
+exports.getFuncionariosCpf = (req, res) => {
+    const funcionariosCpf = parseInt (req.params.cpf);
+    return database.query(`SELECT * FROM public.funcionarios WHERE cpf = ${funcionariosCpf}`);
+    
+};
 
 // método que deleta o funcionário pelo id dele
 exports.deleteFuncionarios = async (req, res) => { 
