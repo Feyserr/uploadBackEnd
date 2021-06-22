@@ -29,8 +29,12 @@ import {StyleForm} from '../../styles';
 
 function getFuncionariosCpf(){
     setLoading(true)
-      axios.get(`http://uploadbackendfuncionarios.herokuapp.com/funcionarios/cpf/${cpf}`).then((response)=>{
-        setFuncionariosList(response.data.rows);
+      axios.get(`http://uploadbackendfuncionarios.herokuapp.com/funcionarios/cpf/${cpf}`, 
+      {headers:{  
+        "Access-Control-Allow-Origin": "*"}})
+        .then((response)=>{
+        
+      setFuncionariosList(response.data.rows);
         setLoading(false)
   })
   .catch((error) => {
@@ -82,69 +86,68 @@ function getFuncionariosCpf(){
       )}
       
         
-    return(
-                 <div> 
-                        <StyleForm onSubmit={handleSubmit}>
-                            <input className="styleInput"type="text" placeholder="Digite um CPF" onChange={(e) => {
-                                  setCpf(e.target.value);
-                              }}/>
-                            <Button label={"Buscar"} type="submit"></Button>
-                        </StyleForm>
+      return(
+            <div> 
+              <StyleForm onSubmit={handleSubmit}>
+                    <input className="styleInput"type="text" placeholder="Digite um CPF" onChange={(e) => {
+                            setCpf(e.target.value);}}/>
+                    <Button label={"Buscar"} type="submit"></Button>
+              </StyleForm>
             
-            {funcionarioList.map((val,index)=>{
-                return (
+              {funcionarioList.map((val,index)=>{
+                  return (
                   
-                  <div key={index}>
+                    <div key={index}>
                    
-                    <FlexWrapper>
+                      <FlexWrapper>
                     
-                      <div className="separacao">
-                        <p className="styleCampo">Nome</p>
-                        <p>{val.nome}</p>
-                      </div>
+                        <div className="separacao">
+                          <p className="styleCampo">Nome</p>
+                          <p>{val.nome}</p>
+                        </div>
 
-                      <div className="separacao">
-                        <p className="styleCampo">CPF</p>
-                        <p>{val.cpf}</p>
-                      </div>
+                        <div className="separacao">
+                          <p className="styleCampo">CPF</p>
+                          <p>{val.cpf}</p>
+                        </div>
 
-                      <div className="separacao">
-                        <p className="styleCampo">Função</p>
-                        <p>{val.funcao}</p>
-                      </div>
+                        <div className="separacao">
+                          <p className="styleCampo">Função</p>
+                          <p>{val.funcao}</p>
+                        </div>
 
-                      <div className="separacao">
-                        <p className="styleCampo">Regime</p>
-                        <p>{val.regime}</p>
-                      </div>
+                        <div className="separacao">
+                          <p className="styleCampo">Regime</p>
+                          <p>{val.regime}</p>
+                        </div>
                   
-                      <div className="separacao">
-                        <p className="styleCampo">email</p>
-                        <p>{val.email}</p>
-                      </div>
+                        <div className="separacao">
+                          <p className="styleCampo">email</p>
+                          <p>{val.email}</p>
+                        </div>
                   
-                      <div className="separacao">
-                        <p className="styleCampo">Telefone 1</p>
-                        <p>{val.telefone1}</p>
-                      </div>
+                        <div className="separacao">
+                          <p className="styleCampo">Telefone 1</p>
+                          <p>{val.telefone1}</p>
+                        </div>
                   
-                      <div className="separacao">
-                        <p className="styleCampo">Telefone 2</p>
-                        <p>{val.telefone2}</p>
-                      </div>
+                        <div className="separacao">
+                          <p className="styleCampo">Telefone 2</p>
+                          <p>{val.telefone2}</p>
+                        </div>
                   
-                      <div className="separacao">
-                        <p className="styleCampo">CNPJ</p>
-                        <p>{val.cnpj}</p>
-                      </div>
-                  </FlexWrapper>
+                        <div className="separacao">
+                          <p className="styleCampo">CNPJ</p>
+                          <p>{val.cnpj}</p>
+                        </div>
+                      </FlexWrapper>
                     
                   
-                    <div className="ButtonStyle">
-                      <Button label={"Editar"} onClick={() => funcaoEditar(val.id)}></Button>
-                      <Button label={"Deletar"} onClick={() => funcaoDeletar(val.id)}></Button>
+                      <div className="ButtonStyle">
+                        <Button label={"Editar"} onClick={() => funcaoEditar(val.id)}></Button>
+                        <Button label={"Deletar"} onClick={() => funcaoDeletar(val.id)}></Button>
+                      </div>
                     </div>
-                  </div>
                 )
 
             })}

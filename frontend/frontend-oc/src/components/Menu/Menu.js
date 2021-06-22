@@ -6,8 +6,6 @@ import { useHistory } from 'react-router';
 export default function Menu(){
     const [isOpen, setIsOpen] = useState(false);
 
- 
-
     const history = useHistory();
 
     const handleClick = (route) => {
@@ -23,9 +21,8 @@ export default function Menu(){
                 data-target="#navbar01"
                 aria-controls="navbar01"
                 aria-expanded="false"
-                aria-label = "Toggle navigation"
-                
-            >
+                aria-label = "Toggle navigation">
+
                 <span className="text-white">Menu</span>
 
             </button>
@@ -33,16 +30,12 @@ export default function Menu(){
                 <ul className="navbar-nav mr-auto">
                     <p className ="nav-item">
                         <button to ="/" className="nav-link" onClick={()=>handleClick("/")}>Home</button>
-
                     </p>
                     <p className ="nav-item2">
                         <button to ="/ListarFuncionarios" className="nav-link" onClick={()=>handleClick("/ListarFuncionarios")}>Lista</button>
 
                     </p>
-                   
-
                 </ul>
-
             </div>
         </nav>
     )

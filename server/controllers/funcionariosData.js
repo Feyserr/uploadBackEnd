@@ -55,7 +55,7 @@ exports.getFuncionariosId = (req, res) => {
 // método que pega o cpf do funcionario 
 exports.getFuncionariosCpf = (req, res) => {
     const funcionariosCpf = parseInt (req.params.cpf);
-    return database.query(`SELECT * FROM public.funcionarios WHERE cpf = ${funcionariosCpf}`);
+    return database.query(`SELECT * FROM public.funcionarios WHERE cpf = '${funcionariosCpf}'`);
     
 };
 
